@@ -36,28 +36,34 @@ function psQuery(args, callback){
 }
 
 function wmicQuery(args, callback){
-  ChildProcess.exec('wmic process get ProcessID,ExecutablePath,Name /FORMAT:CSV', function (err, stdout, stderr) {
-    if (err || stderr)
+  ChildProcess.exec('wmic process ' + args + ' get ProcessID,ExecutablePath,CommandLine,Name /FORMAT:CSV', function (err, stdout, stderr) {
+    if (err || stderr){
       return callback(err || stderr.toString());
+    }
 
-    csv.parse(stdout, function (err, data) {
-      if (err)
+    csv.parse(stdout, {relax: true, escape: null}, function (err, data) {
+      if (err){
         return callback(err);
+      }
 
       // filter our headers and bad data
       var results = data.filter(function(row){
-        return !( row.length < 3 || row[1] == undefined || row[1].length < 1 );
+        return !( row.length < 3 || row[1] == undefined || row[1].length < 1 || row[3] === 'Name');
       }).map(function (row) {
         // 123, thing.exe, C:\this\is\where\i\live
-        var pid = parseInt(row[3], 10);
-        var command = row[2];
-        var whole = row[1] || "";
+        var pid = parseInt(row[4], 10);
+        var command = row[3];
+        var whole = row[2] || "";
+        var withArgs = row[1] || "";
         var execDir = whole.substr(0, whole.length - command.length);
+
+        var args = withArgs.substr(whole.length + 1).split(" ");
 
         return {
           pid: pid,
           command: command,
-          execDir: execDir
+          execDir: execDir,
+          args: args
         };
       });
 
@@ -80,7 +86,7 @@ module.exports.list = function(callback){
 module.exports.lookup = function(pid, callback){
   if (process.platform === 'win32'){
     // Windows check
-    wmicQuery("", callback);
+    wmicQuery("where processid=" + pid, callback);
   } else {
     // OS X/Linux check
     psQuery("-o pid,comm -p " + pid, callback);
@@ -90,7 +96,7 @@ module.exports.lookup = function(pid, callback){
 module.exports.detailedLookup = function(pid, callback){
   if (process.platform === 'win32'){
     // Windows check
-    wmicQuery("", callback);
+    wmicQuery("where processid=" + pid, callback);
   } else {
     // OS X/Linux check
     psQuery("-o pid,args -p " + pid, callback);
