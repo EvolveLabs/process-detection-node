@@ -24,3 +24,18 @@ describe('list', function(){
     });
   });
 });
+
+describe('lookup', function(){
+  it('can be called', function(done){
+    ps.lookup('1', function(err, results){
+      expect(results).to.exist();
+      done();
+    });
+  });
+  it('returns 1 value', function(done){
+    ps.lookup('1', function(err, results){
+      expect(results.length).to.equal(1);
+      done();
+    });
+  });
+});
