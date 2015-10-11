@@ -83,6 +83,17 @@ module.exports.lookup = function(pid, callback){
     wmicQuery("", callback);
   } else {
     // OS X/Linux check
+    psQuery("-o pid,comm -p " + pid, callback);
+  }
+}
+
+module.exports.detailedLookup = function(pid, callback){
+  if (process.platform === 'win32'){
+    // Windows check
+    wmicQuery("", callback);
+  } else {
+    // OS X/Linux check
     psQuery("-o pid,args -p " + pid, callback);
   }
 }
+

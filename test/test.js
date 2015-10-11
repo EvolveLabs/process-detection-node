@@ -39,3 +39,18 @@ describe('lookup', function(){
     });
   });
 });
+
+describe('detailedLookup', function(){
+  it('can be called', function(done){
+    ps.detailedLookup('1', function(err, results){
+      expect(results).to.exist();
+      done();
+    });
+  });
+  it('returns 1 value', function(done){
+    ps.detailedLookup('1', function(err, results){
+      expect(results.length).to.equal(1);
+      done();
+    });
+  });
+});
