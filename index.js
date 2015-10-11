@@ -3,7 +3,7 @@ var csv = require('csv');
 
 // returns pid and commands, WITHOUT args
 module.exports.list = function(callback){
-  if (process.platform !== 'darwin'){
+  if (process.platform === 'win32'){
     // Windows check
     ChildProcess.exec('wmic process get ProcessID,ExecutablePath,Name /FORMAT:CSV', function (err, stdout, stderr) {
       if (err || stderr)
@@ -34,7 +34,7 @@ module.exports.list = function(callback){
       });
     });
   } else {
-    // OS X check
+    // OS X/Linux check
     ChildProcess.exec('ps -Ao pid,comm', function (err, stdout, stderr) {
       if (err || stderr)
         return callback(err || stderr.toString());
