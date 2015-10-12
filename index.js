@@ -1,13 +1,21 @@
 var ChildProcess = require('child_process');
 var csv = require('csv');
 
-function psQuery(args, callback){
+module.exports.runCommand = function (cmd, callback) {
 
-    ChildProcess.exec('ps ' + args, function (err, stdout, stderr) {
-
+    ChildProcess.exec(cmd, function (err, stdout, stderr) {
         if (err || stderr) {
             return callback(err || stderr.toString());
         }
+        return callback(null, stdout.toString().trim());
+    });
+};
+
+function psQuery(args, callback){
+
+    var cmd = 'ps ' + args;
+    module.exports.runCommand(cmd, function (err, stdout) {
+
         var results = [];
         stdout.split('\n').map(function (row) {
 
@@ -42,11 +50,8 @@ function psQuery(args, callback){
 
 function wmicQuery(args, callback){
 
-    ChildProcess.exec('wmic process ' + args + ' get ProcessID,ExecutablePath,CommandLine,Name /FORMAT:CSV', function (err, stdout, stderr) {
-
-        if (err || stderr){
-            return callback(err || stderr.toString());
-        }
+    var cmd = 'wmic process ' + args + ' get ProcessID,ExecutablePath,CommandLine,Name /FORMAT:CSV';
+    module.exports.runCommand(cmd, function (err, stdout) {
 
         csv.parse(stdout, { relax: true, escape: null }, function (err, data) {
 
