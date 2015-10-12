@@ -4,7 +4,7 @@
   "description": "Detect running processes on the host.",
   "main": "index.js",
   "scripts": {
-    "test": "lab -a code -t 60 -v -m 2000 -r html -o test.html -r console -o stdout"
+    "test": "lab -a code -L -t 60 -v -m 2000 -r html -o test.html -r console -o stdout"
   },
   "repository": {
     "type": "git",
