@@ -4,8 +4,12 @@
   "description": "Detect running processes on the host.",
   "main": "index.js",
   "scripts": {
-    "test": "lab -a code -t 60 -v -m 15000 -r html -o test.html -r console -o stdout"
+    "test": "lab -a code -t 60 -v -m 2000 -r html -o test.html -r console -o stdout"
   },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/evolvelabs/Process-Detection.git"
+   },
   "keywords": [
     "ps",
     "process",
@@ -14,10 +18,10 @@
   "author": "Joe Pintozzi",
   "license": "ISC",
   "devDependencies": {
-    "code": "^1.5.0",
-    "lab": "^6.2.0"
+    "code": "1.x.x",
+    "lab": "6.x.x"
   },
   "dependencies": {
-    "csv": "^0.4.6"
+    "csv": "0.4.x"
   }
 }
