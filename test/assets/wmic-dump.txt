@@ -1,0 +1,94 @@
+
+Node,CommandLine,ExecutablePath,Name,ProcessId
+JOEWINDOWS,,,System Idle Process,0
+JOEWINDOWS,,,System,4
+JOEWINDOWS,,,smss.exe,292
+JOEWINDOWS,,,csrss.exe,380
+JOEWINDOWS,,,csrss.exe,460
+JOEWINDOWS,,,wininit.exe,472
+JOEWINDOWS,,,winlogon.exe,504
+JOEWINDOWS,,,services.exe,568
+JOEWINDOWS,,,lsass.exe,576
+JOEWINDOWS,,,svchost.exe,656
+JOEWINDOWS,,,svchost.exe,696
+JOEWINDOWS,,,dwm.exe,808
+JOEWINDOWS,,,svchost.exe,860
+JOEWINDOWS,,,svchost.exe,944
+JOEWINDOWS,,,svchost.exe,960
+JOEWINDOWS,,,vmacthlp.exe,1008
+JOEWINDOWS,,,svchost.exe,64
+JOEWINDOWS,,,WUDFHost.exe,400
+JOEWINDOWS,,,nvvsvc.exe,348
+JOEWINDOWS,,,svchost.exe,1036
+JOEWINDOWS,,,svchost.exe,1080
+JOEWINDOWS,,,svchost.exe,1248
+JOEWINDOWS,,,svchost.exe,1448
+JOEWINDOWS,,,spoolsv.exe,1496
+JOEWINDOWS,,,AppleOSSMgr.exe,1764
+JOEWINDOWS,,,AppleMobileDeviceService.exe,1776
+JOEWINDOWS,,,mDNSResponder.exe,1800
+JOEWINDOWS,,,svchost.exe,1892
+JOEWINDOWS,,,dasHost.exe,1904
+JOEWINDOWS,,,HiPatchService.exe,1952
+JOEWINDOWS,,,GfExperienceService.exe,1976
+JOEWINDOWS,,,IpOverUsbSvc.exe,1988
+JOEWINDOWS,,,LbSvc.exe,1276
+JOEWINDOWS,,,NvNetworkService.exe,2108
+JOEWINDOWS,,,NvStreamService.exe,2144
+JOEWINDOWS,,,coherence.exe,2152
+JOEWINDOWS,,,coherence.exe,2176
+JOEWINDOWS,,,prl_tools_service.exe,2188
+JOEWINDOWS,,,coherence.exe,2204
+JOEWINDOWS,,,dllhost.exe,2288
+JOEWINDOWS,,,svchost.exe,2308
+JOEWINDOWS,,,prl_tools.exe,2328
+JOEWINDOWS,,,svchost.exe,2388
+JOEWINDOWS,,,ViscosityService.exe,2524
+JOEWINDOWS,,,vmware-usbarbitrator64.exe,2572
+JOEWINDOWS,,,MsMpEng.exe,2588
+JOEWINDOWS,,,NvStreamNetworkService.exe,2852
+JOEWINDOWS,,,conhost.exe,2880
+JOEWINDOWS,,,dllhost.exe,3024
+JOEWINDOWS,,,WmiPrvSE.exe,2796
+JOEWINDOWS,,,dllhost.exe,2884
+JOEWINDOWS,,,msdtc.exe,3604
+JOEWINDOWS,sihost.exe,C:\WINDOWS\system32\sihost.exe,sihost.exe,3776
+JOEWINDOWS,,,NvStreamUserAgent.exe,3832
+JOEWINDOWS,taskhostw.exe {222A245B-E637-4AE9-A93F-A59CA119A75E},C:\WINDOWS\system32\taskhostw.exe,taskhostw.exe,3840
+JOEWINDOWS,,,conhost.exe,3876
+JOEWINDOWS,C:\WINDOWS\Explorer.EXE,C:\WINDOWS\Explorer.EXE,explorer.exe,2264
+JOEWINDOWS,,,NisSrv.exe,3320
+JOEWINDOWS,,,SearchIndexer.exe,4260
+JOEWINDOWS,"C:\Windows\SystemApps\ShellExperienceHost_cw5n1h2txyewy\ShellExperienceHost.exe" -ServerName:App.AppXtk181tbxbce2qsex02s8tw7hfxa9xb3t.mca,C:\Windows\SystemApps\ShellExperienceHost_cw5n1h2txyewy\ShellExperienceHost.exe,ShellExperienceHost.exe,4520
+JOEWINDOWS,C:\Windows\System32\RuntimeBroker.exe -Embedding,C:\Windows\System32\RuntimeBroker.exe,RuntimeBroker.exe,4620
+JOEWINDOWS,"C:\Windows\SystemApps\Microsoft.Windows.Cortana_cw5n1h2txyewy\SearchUI.exe" -ServerName:CortanaUI.AppXa50dqqa5gqv4a428c9y1jjw7m3btvepj.mca,C:\Windows\SystemApps\Microsoft.Windows.Cortana_cw5n1h2txyewy\SearchUI.exe,SearchUI.exe,4888
+JOEWINDOWS,"C:\Program Files (x86)\Parallels\Parallels Tools\prl_cc.exe",C:\Program Files (x86)\Parallels\Parallels Tools\prl_cc.exe,prl_cc.exe,5116
+JOEWINDOWS,C:\WINDOWS\system32\SettingSyncHost.exe -Embedding,C:\WINDOWS\system32\SettingSyncHost.exe,SettingSyncHost.exe,856
+JOEWINDOWS,"C:\Program Files (x86)\NVIDIA Corporation\Update Core\NvBackend.exe" ,C:\Program Files (x86)\NVIDIA Corporation\Update Core\NvBackend.exe,NvBackend.exe,5252
+JOEWINDOWS,"C:\Users\Joseph\AppData\Local\Microsoft\OneDrive\OneDrive.exe" /background,C:\Users\Joseph\AppData\Local\Microsoft\OneDrive\OneDrive.exe,OneDrive.exe,5416
+JOEWINDOWS,"C:\Program Files\Echobit\Evolve\EvolveClient.exe" -autorun,C:\Program Files\Echobit\Evolve\EvolveClient.exe,EvolveClient.exe,5460
+JOEWINDOWS,"C:\Program Files (x86)\iTunes\iTunesHelper.exe" ,C:\Program Files (x86)\iTunes\iTunesHelper.exe,iTunesHelper.exe,5528
+JOEWINDOWS,,,EvoSvc.exe,5712
+JOEWINDOWS,,,iPodService.exe,5848
+JOEWINDOWS,,,EvolveTracker_32.exe,5920
+JOEWINDOWS,,,EvolveTracker_64.exe,5932
+JOEWINDOWS,"C:\Program Files\Echobit\Evolve\EvolveUI.exe" --type=renderer --no-sandbox --user-agent="Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/31.0.1650.39 Safari/537.36 EvolveBrowser/1.8.17" --lang=en-US --lang=en-US --log-file="C:\Users\Joseph\AppData\Local\Echobit\Evolve\Browser\CefBrowser.log" --disable-webgl --disable-pepper-3d --disable-gl-multisampling --disable-accelerated-compositing --disable-accelerated-2d-canvas --disable-accelerated-video-decode --channel="5460.1.447074798\273304233" /prefetch:673131151,C:\Program Files\Echobit\Evolve\EvolveUI.exe,EvolveUI.exe,6136
+JOEWINDOWS,"C:\Program Files\Echobit\Evolve\EvolveUI.exe" --type=renderer --no-sandbox --user-agent="Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/31.0.1650.39 Safari/537.36 EvolveBrowser/1.8.17" --lang=en-US --lang=en-US --log-file="C:\Users\Joseph\AppData\Local\Echobit\Evolve\Browser\CefBrowser.log" --disable-webgl --disable-pepper-3d --disable-gl-multisampling --disable-accelerated-compositing --disable-accelerated-2d-canvas --disable-accelerated-video-decode --channel="5460.3.49151229\2110180616" /prefetch:673131151,C:\Program Files\Echobit\Evolve\EvolveUI.exe,EvolveUI.exe,5372
+JOEWINDOWS,,,fontdrvhost.exe,5616
+JOEWINDOWS,,,WmiPrvSE.exe,2272
+JOEWINDOWS,"C:\WINDOWS\system32\cmd.exe" ,C:\WINDOWS\system32\cmd.exe,cmd.exe,92
+JOEWINDOWS,\??\C:\WINDOWS\system32\conhost.exe 0x4,C:\WINDOWS\system32\conhost.exe,conhost.exe,5424
+JOEWINDOWS,,,LMS.exe,596
+JOEWINDOWS,C:\WINDOWS\system32\svchost.exe -k UnistackSvcGroup,C:\WINDOWS\system32\svchost.exe,svchost.exe,3784
+JOEWINDOWS,C:\Windows\System32\wuapihost.exe -Embedding,C:\Windows\System32\wuapihost.exe,wuapihost.exe,6424
+JOEWINDOWS,"C:\Program Files (x86)\Steam\Steam.exe" ,C:\Program Files (x86)\Steam\Steam.exe,Steam.exe,6936
+JOEWINDOWS,"C:\Program Files (x86)\Steam\bin\steamwebhelper.exe" -cachedir="C:\Users\Joseph\AppData\Local\Steam\htmlcache" -steampid=6936 -buildid=1444343308 -steamid="0"  --disable-gpu-compositing --disable-gpu --process-per-tab --enable-system-flash --disable-spell-checking --enable-widevine-cdm --enable-direct-write,C:\Program Files (x86)\Steam\bin\steamwebhelper.exe,steamwebhelper.exe,7012
+JOEWINDOWS,,,SteamService.exe,7064
+JOEWINDOWS,,,audiodg.exe,6304
+JOEWINDOWS,"C:\Program Files (x86)\Steam\bin\steamwebhelper.exe" --type=renderer --disable-gpu-compositing --enable-pinch --lang=en-US --lang=en-US --product-version="Valve Steam Client" --disable-spell-checking --enable-system-flash --enable-pinch --device-scale-factor=1 --enable-delegated-renderer --num-raster-threads=1 --gpu-rasterization-msaa-sample-count=8 --content-image-texture-target=3553 --video-image-texture-target=3553 --disable-gpu-compositing --channel="7012.0.354416880\180522490" --font-cache-shared-handle=1360 /prefetch:673131151,C:\Program Files (x86)\Steam\bin\steamwebhelper.exe,steamwebhelper.exe,6356
+JOEWINDOWS,"C:\Program Files (x86)\Steam\steamapps\common\Half-Life\hl.exe" -steam -game ricochet,C:\Program Files (x86)\Steam\steamapps\common\Half-Life\hl.exe,hl.exe,6752
+JOEWINDOWS,"C:\Riot Games\League of Legends\RADS\system\rads_user_kernel.exe" updateandrun lol_launcher LoLLauncher.exe,C:\Riot Games\League of Legends\RADS\system\rads_user_kernel.exe,rads_user_kernel.exe,6772
+JOEWINDOWS,LoLLauncher.exe  ,C:\Riot Games\League of Legends\RADS\projects\lol_launcher\releases\0.0.1.0\deploy\LoLLauncher.exe,LoLLauncher.exe,6088
+JOEWINDOWS,C:\Program Files (x86)\Steam\GameOverlayUI.exe -pid 6752 -manuallyclearframes 0,C:\Program Files (x86)\Steam\GameOverlayUI.exe,GameOverlayUI.exe,584
+JOEWINDOWS,"C:/Riot Games/League of Legends/RADS/projects/lol_patcher/releases/0.0.0.40/deploy/LoLPatcher.exe",C:\Riot Games\League of Legends\RADS\projects\lol_patcher\releases\0.0.0.40\deploy\LoLPatcher.exe,LoLPatcher.exe,3488
+JOEWINDOWS,"C:/Riot Games/League of Legends/RADS/projects/lol_air_client/releases/0.0.1.161/deploy//LolClient.exe" -runtime .\ -nodebug META-INF\AIR\application.xml .\ -- 8393,C:\Riot Games\League of Legends\RADS\projects\lol_air_client\releases\0.0.1.161\deploy\LolClient.exe,LolClient.exe,6236

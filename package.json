@@ -9,7 +9,7 @@
   "repository": {
     "type": "git",
     "url": "git://github.com/evolvelabs/Process-Detection.git"
-   },
+  },
   "keywords": [
     "ps",
     "process",
@@ -19,7 +19,8 @@
   "license": "ISC",
   "devDependencies": {
     "code": "1.x.x",
-    "lab": "6.x.x"
+    "lab": "6.x.x",
+    "sinon": "^1.17.1"
   },
   "dependencies": {
     "csv": "0.4.x"

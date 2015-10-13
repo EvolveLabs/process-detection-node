@@ -71,7 +71,7 @@ function wmicQuery(args, callback){
                 var whole = row[2] || '';
                 var withArgs = row[1] || '';
                 var execDir = whole.substr(0, whole.length - command.length);
-                var args = withArgs.substr(whole.length + 1).split(' ');
+                var args = withArgs.substr(whole.length + 1).replace(/^"/,'').trim().split(' ');
 
                 return {
                     pid: pid,
@@ -93,7 +93,7 @@ module.exports.list = function (callback){
         wmicQuery('', callback);
     } else {
         // OS X/Linux check
-        psQuery('-A -o pid,command', callback);
+        psQuery('-A -o pid,comm', callback);
     }
 };
 
@@ -104,7 +104,7 @@ module.exports.lookup = function (pid, callback){
         wmicQuery('where processid=' + pid, callback);
     } else {
         // OS X/Linux check
-        psQuery('-o pid,command -p ' + pid, callback);
+        psQuery('-o pid,comm -p ' + pid, callback);
     }
 };
 
