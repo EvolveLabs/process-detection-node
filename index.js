@@ -93,7 +93,7 @@ module.exports.list = function (callback){
         wmicQuery('', callback);
     } else {
         // OS X/Linux check
-        psQuery('-A -o pid,command', callback);
+        psQuery('-A -o pid,comm', callback);
     }
 };
 
@@ -104,7 +104,7 @@ module.exports.lookup = function (pid, callback){
         wmicQuery('where processid=' + pid, callback);
     } else {
         // OS X/Linux check
-        psQuery('-o pid,command -p ' + pid, callback);
+        psQuery('-o pid,comm -p ' + pid, callback);
     }
 };
 
