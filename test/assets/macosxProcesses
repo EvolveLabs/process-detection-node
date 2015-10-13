@@ -1,0 +1,2 @@
+1234 /Applications/Google Chrome.app/Contents/MacOS/Google Chrome
+12345 /Applications/Google Chrome.app/Contents/Versions/45.0.2454.101/Google Chrome Framework.framework/Helpers/crashpad_handler --database=/Users/user/Library/Application Support/Google/Chrome/Crashpad --url=https://clients2.google.com/cr/report --annotation=plat=OS X --annotation=prod=Chrome_Mac --annotation=ver=45.0.2454.101 --handshake-fd=7
