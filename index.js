@@ -71,7 +71,7 @@ function wmicQuery(args, callback){
                 var whole = row[2] || '';
                 var withArgs = row[1] || '';
                 var execDir = whole.substr(0, whole.length - command.length);
-                var args = withArgs.substr(whole.length + 1).split(' ');
+                var args = withArgs.substr(whole.length + 1).replace(/^"/,'').trim().split(' ');
 
                 return {
                     pid: pid,
