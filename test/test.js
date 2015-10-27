@@ -203,6 +203,12 @@ describe('on Windows', function(){
                 expect(result.command).to.equal('svchost.exe');
                 expect(result.args.length).to.equal(2);
                 expect(result.args.indexOf('-k')).to.not.equal(-1);
+
+                result = results[results.length - 13];
+                console.log(result);
+                expect(result).to.exist();
+                expect(result.command).to.equal('RebelGalaxySteam.exe');
+                expect(result.args.length).to.equal(0);
                 done();
             });
         });

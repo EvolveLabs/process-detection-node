@@ -24,18 +24,11 @@ JOEWINDOWS,,,svchost.exe,1080
 JOEWINDOWS,,,svchost.exe,1248
 JOEWINDOWS,,,svchost.exe,1448
 JOEWINDOWS,,,spoolsv.exe,1496
-JOEWINDOWS,,,AppleOSSMgr.exe,1764
-JOEWINDOWS,,,AppleMobileDeviceService.exe,1776
-JOEWINDOWS,,,mDNSResponder.exe,1800
-JOEWINDOWS,,,svchost.exe,1892
-JOEWINDOWS,,,dasHost.exe,1904
 JOEWINDOWS,,,HiPatchService.exe,1952
 JOEWINDOWS,,,GfExperienceService.exe,1976
 JOEWINDOWS,,,IpOverUsbSvc.exe,1988
 JOEWINDOWS,,,LbSvc.exe,1276
-JOEWINDOWS,,,NvNetworkService.exe,2108
 JOEWINDOWS,,,NvStreamService.exe,2144
-JOEWINDOWS,,,coherence.exe,2152
 JOEWINDOWS,,,coherence.exe,2176
 JOEWINDOWS,,,prl_tools_service.exe,2188
 JOEWINDOWS,,,coherence.exe,2204
@@ -79,6 +72,10 @@ JOEWINDOWS,,,WmiPrvSE.exe,2272
 JOEWINDOWS,"C:\WINDOWS\system32\cmd.exe" ,C:\WINDOWS\system32\cmd.exe,cmd.exe,92
 JOEWINDOWS,\??\C:\WINDOWS\system32\conhost.exe 0x4,C:\WINDOWS\system32\conhost.exe,conhost.exe,5424
 JOEWINDOWS,,,LMS.exe,596
+AIUR,"C:\WINDOWS\system32\SearchProtocolHost.exe" Global\UsGthrFltPipeMssGthrPipe_S-1-5-21-1241402174-3546147509-1823376875-1001166_ Global\UsGthrCtrlFltPipeMssGthrPipe_S-1-5-21-1241402174-3546147509-1823376875-1001166 1 -2147483646 "Software\Microsoft\Windows Search" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT; MS Search 4.0 Robot)" "C:\ProgramData\Microsoft\Search\Data\Temp\usgthrsvc" "DownLevelDaemon"  "1",C:\WINDOWS\system32\SearchProtocolHost.exe,SearchProtocolHost.exe,3192
+AIUR,"C:\Windows\SystemApps\Microsoft.Windows.Cortana_cw5n1h2txyewy\SearchUI.exe" -ServerName:CortanaUI.AppXa50dqqa5gqv4a428c9y1jjw7m3btvepj.mca,C:\Windows\SystemApps\Microsoft.Windows.Cortana_cw5n1h2txyewy\SearchUI.exe,SearchUI.exe,2700
+AIUR,D:/STEAMLIBRARY/STEAMAPPS/COMMON/REBELGALAXY/RebelGalaxySteam.exe,D:\STEAMLIBRARY\STEAMAPPS\COMMON\REBELGALAXY\RebelGalaxySteam.exe,RebelGalaxySteam.exe,3296
+AIUR,C:\Program Files (x86)\Steam\GameOverlayUI.exe -pid 3296 -manuallyclearframes 0,C:\Program Files (x86)\Steam\GameOverlayUI.exe,GameOverlayUI.exe,11848
 JOEWINDOWS,C:\WINDOWS\system32\svchost.exe -k UnistackSvcGroup,C:\WINDOWS\system32\svchost.exe,svchost.exe,3784
 JOEWINDOWS,C:\Windows\System32\wuapihost.exe -Embedding,C:\Windows\System32\wuapihost.exe,wuapihost.exe,6424
 JOEWINDOWS,"C:\Program Files (x86)\Steam\Steam.exe" ,C:\Program Files (x86)\Steam\Steam.exe,Steam.exe,6936
