@@ -13,7 +13,7 @@ module.exports.runCommand = function (cmd, callback) {
 
 function psQuery(args, callback){
 
-    var cmd = 'ps ' + args;
+    var cmd = 'ps -ww ' + args;
     module.exports.runCommand(cmd, function (err, stdout) {
 
         var results = [];
