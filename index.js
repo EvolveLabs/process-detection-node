@@ -115,6 +115,6 @@ module.exports.detailedLookup = function (pid, callback){
         wmicQuery('where processid=' + pid, callback);
     } else {
         // OS X/Linux check
-        psQuery('-o pid,args -p ' + pid, callback);
+        psQuery('-o pid,command -p ' + pid, callback);
     }
 };
