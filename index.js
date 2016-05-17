@@ -53,7 +53,11 @@ function wmicQuery(args, callback){
     var cmd = 'wmic process ' + args + ' get ProcessID,ExecutablePath,CommandLine,Name /FORMAT:CSV';
     module.exports.runCommand(cmd, function (err, stdout) {
 
-        csv.parse(stdout, { relax: true, escape: null }, function (err, data) {
+        // MUST use relax_column_count!!!!!!!!!!!!!!!!!!!!
+        // By default csv is extremely picky about number of columns.
+        // Any lines that are different length from the first line
+        // will generate an error.
+        csv.parse(stdout, { relax: true, relax_column_count: true, escape: null }, function (err, data) {
 
             if (err){
                 return callback(err);
