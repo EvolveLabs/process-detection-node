@@ -54,6 +54,9 @@ function wmicQuery(args, callback){
     module.exports.runCommand(cmd, function (err, stdout) {
 
         // MUST use relax_column_count!!!!!!!!!!!!!!!!!!!!
+        // By default csv is extremely picky about number of columns.
+        // Any lines that are different length from the first line
+        // will generate an error.
         csv.parse(stdout, { relax: true, relax_column_count: true, escape: null }, function (err, data) {
 
             if (err){
