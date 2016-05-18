@@ -16,6 +16,10 @@ function psQuery(args, callback){
     var cmd = 'ps ' + args;
     module.exports.runCommand(cmd, function (err, stdout) {
 
+        if (err) {
+            return callback(err);
+        }
+
         var results = [];
         stdout.split('\n').map(function (row) {
 
