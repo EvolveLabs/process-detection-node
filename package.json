@@ -18,11 +18,11 @@
   "author": "Joe Pintozzi",
   "license": "ISC",
   "devDependencies": {
-    "code": "1.x.x",
+    "code": "3.0.1",
     "gulp": "3.9.1",
     "gulp-lab": "1.0.6",
-    "lab": "6.x.x",
-    "sinon": "^1.17.1"
+    "lab": "10.9.0",
+    "sinon": "1.17.4"
   },
   "dependencies": {
     "csv": "0.4.x"
