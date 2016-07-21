@@ -13,7 +13,7 @@ module.exports.runCommand = function (cmd, callback) {
 
 function psQuery(args, callback){
 
-    var cmd = 'ps ' + args;
+    var cmd = 'ps -ww ' + args;
     module.exports.runCommand(cmd, function (err, stdout) {
 
         if (err) {
@@ -127,6 +127,6 @@ module.exports.detailedLookup = function (pid, callback){
         wmicQuery('where processid=' + pid, callback);
     } else {
         // OS X/Linux check
-        psQuery('-o pid,args -p ' + pid, callback);
+        psQuery('-o pid,command -p ' + pid, callback);
     }
 };
