@@ -12,7 +12,11 @@ var ps = require('../index.js');
 
 describe('on OS X', function(){
 
-    lab.before(function (done) {
+    var sandbox;
+
+    lab.beforeEach(function (done) {
+
+        sandbox = sinon.sandbox.create();
 
         Object.defineProperty(process, 'platform', {
 
@@ -21,20 +25,20 @@ describe('on OS X', function(){
         done();
     });
 
+    lab.afterEach(function (done) {
+        sandbox.restore();
+        done();
+    });
+
     describe('list', function (){
 
-        lab.before(function (done) {
+        lab.beforeEach(function (done) {
             //stub out our PS with pre-recorded response
-            sinon.stub(ps, 'runCommand', function(cmd, callback){
+            sandbox.stub(ps, 'runCommand', function(cmd, callback){
                 fs.readFile(path.join(__dirname, 'assets', 'ps-dump.txt'), { encoding: 'utf8' }, function (err, data) {
                     callback(err, data);
                 });
             });
-            done();
-        });
-
-        lab.after(function (done) {
-            ps.runCommand.restore();
             done();
         });
 
@@ -61,18 +65,13 @@ describe('on OS X', function(){
 
     describe('lookup', function (){
 
-        lab.before(function (done) {
+        lab.beforeEach(function (done) {
             //stub out our PS with pre-recorded response
-            sinon.stub(ps, 'runCommand', function(cmd, callback){
+            sandbox.stub(ps, 'runCommand', function(cmd, callback){
                 fs.readFile(path.join(__dirname, 'assets', 'ps-single.txt'), { encoding: 'utf8' }, function (err, data) {
                     callback(err, data);
                 });
             });
-            done();
-        });
-
-        lab.after(function (done) {
-            ps.runCommand.restore();
             done();
         });
 
@@ -97,18 +96,13 @@ describe('on OS X', function(){
 
     describe('detailedLookup', function (){
 
-        lab.before(function (done) {
+        lab.beforeEach(function (done) {
             //stub out our PS with pre-recorded response
-            sinon.stub(ps, 'runCommand', function(cmd, callback){
+            sandbox.stub(ps, 'runCommand', function(cmd, callback){
                 fs.readFile(path.join(__dirname, 'assets', 'ps-single.txt'), { encoding: 'utf8' }, function (err, data) {
                     callback(err, data);
                 });
             });
-            done();
-        });
-
-        lab.after(function (done) {
-            ps.runCommand.restore();
             done();
         });
 
@@ -134,7 +128,11 @@ describe('on OS X', function(){
 
 describe('on Windows', function(){
 
-    lab.before(function (done) {
+    var sandbox;
+
+    lab.beforeEach(function (done) {
+
+        sandbox = sinon.sandbox.create();
 
         Object.defineProperty(process, 'platform', {
 
@@ -143,20 +141,20 @@ describe('on Windows', function(){
         done();
     });
 
+    lab.afterEach(function (done) {
+        sandbox.restore();
+        done();
+    });
+
     describe('list', function (){
 
-        lab.before(function (done) {
+        lab.beforeEach(function (done) {
             //stub out our PS with pre-recorded response
-            sinon.stub(ps, 'runCommand', function(cmd, callback){
+            sandbox.stub(ps, 'runCommand', function(cmd, callback){
                 fs.readFile(path.join(__dirname, 'assets', 'wmic-dump.txt'), { encoding: 'utf8' }, function (err, data) {
                     callback(err, data);
                 });
             });
-            done();
-        });
-
-        lab.after(function (done) {
-            ps.runCommand.restore();
             done();
         });
 
