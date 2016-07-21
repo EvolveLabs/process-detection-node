@@ -8,6 +8,7 @@ var expect = Code.expect;
 var describe = lab.describe;
 var it = lab.it;
 
+var libExec = require('../lib/exec');
 var ps = require('../index.js');
 
 describe('on OS X', function(){
@@ -34,7 +35,7 @@ describe('on OS X', function(){
 
         lab.beforeEach(function (done) {
             //stub out our PS with pre-recorded response
-            sandbox.stub(ps, 'runCommand', function(cmd, callback){
+            sandbox.stub(libExec, 'runCommand', function(cmd, callback){
                 fs.readFile(path.join(__dirname, 'assets', 'ps-dump.txt'), { encoding: 'utf8' }, function (err, data) {
                     callback(err, data);
                 });
@@ -67,7 +68,7 @@ describe('on OS X', function(){
 
         lab.beforeEach(function (done) {
             //stub out our PS with pre-recorded response
-            sandbox.stub(ps, 'runCommand', function(cmd, callback){
+            sandbox.stub(libExec, 'runCommand', function(cmd, callback){
                 fs.readFile(path.join(__dirname, 'assets', 'ps-single.txt'), { encoding: 'utf8' }, function (err, data) {
                     callback(err, data);
                 });
@@ -98,7 +99,7 @@ describe('on OS X', function(){
 
         lab.beforeEach(function (done) {
             //stub out our PS with pre-recorded response
-            sandbox.stub(ps, 'runCommand', function(cmd, callback){
+            sandbox.stub(libExec, 'runCommand', function(cmd, callback){
                 fs.readFile(path.join(__dirname, 'assets', 'ps-single.txt'), { encoding: 'utf8' }, function (err, data) {
                     callback(err, data);
                 });
@@ -150,7 +151,7 @@ describe('on Windows', function(){
 
         lab.beforeEach(function (done) {
             //stub out our PS with pre-recorded response
-            sandbox.stub(ps, 'runCommand', function(cmd, callback){
+            sandbox.stub(libExec, 'runCommand', function(cmd, callback){
                 fs.readFile(path.join(__dirname, 'assets', 'wmic-dump.txt'), { encoding: 'utf8' }, function (err, data) {
                     callback(err, data);
                 });
