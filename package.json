@@ -19,6 +19,8 @@
   "license": "ISC",
   "devDependencies": {
     "code": "1.x.x",
+    "gulp": "3.9.1",
+    "gulp-lab": "1.0.6",
     "lab": "6.x.x",
     "sinon": "^1.17.1"
   },
