@@ -11,7 +11,7 @@ var it = lab.it;
 var libExec = require('../lib/exec');
 var ps = require('../index.js');
 
-describe('on OS X', function(){
+describe.skip('on OS X', function(){
 
     var sandbox;
 

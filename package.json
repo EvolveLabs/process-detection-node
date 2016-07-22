@@ -25,6 +25,7 @@
     "sinon": "1.17.4"
   },
   "dependencies": {
-    "csv": "0.4.x"
+    "csv": "0.4.x",
+    "split": "1.0.0"
   }
 }
