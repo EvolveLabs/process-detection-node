@@ -49,12 +49,18 @@ describe('lib/ps', function() {
                 .to.equal(['-A', '-o', 'stub,columns']);
             done();
         });
-        it('should concat passed in argument list to internally generated ones', function(done) {
-            var args = ['extra', 'arguments'];
-            expect(libPs.psArgs(args))
-                .to.equal(['-A', '-o', 'stub,columns', 'extra', 'arguments']);
+        it('should add pid argument when called with one', function(done) {
+            expect(libPs.psArgs('pid'))
+                .to.equal(['-A', '-p', 'pid', '-o', 'stub,columns']);
             done();
         });
+
+        it('should convert pid argument to string', function(done) {
+            expect(libPs.psArgs(5555))
+                .to.equal(['-A', '-p', '5555', '-o', 'stub,columns']);
+            done();
+        });
+
     });
 
     describe('#psStream', function() {
@@ -76,10 +82,9 @@ describe('lib/ps', function() {
             done();
         });
 
-        it('should pass extra arguments to psArgs', function(done) {
-            var extra = ['extra', 'extra2'];
-            libPs.psStream(extra);
-            sinon.assert.calledWith(libPs.psArgs, extra);
+        it('should pass pid to psArgs', function(done) {
+            libPs.psStream('PID');
+            sinon.assert.calledWith(libPs.psArgs, 'PID');
             done();
         });
 
