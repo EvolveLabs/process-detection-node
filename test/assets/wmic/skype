@@ -1,0 +1,3 @@
+
+Node,CommandLine,ExecutablePath,Name,ProcessId
+WIN10-VM,"C:\Program Files\WindowsApps\Microsoft.Messaging_2.15.20002.0_x86__8wekyb3d8bbwe\SkypeHost.exe" -ServerName:SkypeHost.ServerServer,C:\Program Files\WindowsApps\Microsoft.Messaging_2.15.20002.0_x86__8wekyb3d8bbwe\SkypeHost.exe,SkypeHost.exe,3340
