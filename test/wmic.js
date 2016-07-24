@@ -63,7 +63,7 @@ describe('lib/wmic', function() {
         });
     });
 
-    describe('#wmicStream', function() {
+    describe('#spawnStream', function() {
         var testStdout;
 
         beforeEach(function(done) {
@@ -77,28 +77,28 @@ describe('lib/wmic', function() {
         });
 
         it('should spawn wmic with arguments from wmicArgs()', function(done) {
-            libWmic.wmicStream();
+            libWmic.spawnStream();
             sinon.assert.calledWith(childProcess.spawn, 'wmic', ['stubbed', 'args']);
             done();
         });
 
         it('should pass process to wmicArgs', function(done) {
             var process = 'test_process';
-            libWmic.wmicStream(process);
+            libWmic.spawnStream(process);
             sinon.assert.calledWith(libWmic.wmicArgs, process);
             done();
         });
 
         it('should return stdout from spawn return value', function(done) {
-            expect(libWmic.wmicStream())
+            expect(libWmic.spawnStream())
                 .to.equal(testStdout);
             done();
         });
     });
 
     describe('#query', function() {
-        it('should resolve with processes extracted from wmicStream()', function(done) {
-            sandbox.stub(libWmic, 'wmicStream', streamFile.bind(this, 'skype'));
+        it('should resolve with processes extracted from spawnStream()', function(done) {
+            sandbox.stub(libWmic, 'spawnStream', streamFile.bind(this, 'skype'));
             libWmic.query().then(function(results) {
                 expect(results).to.equal([{
                     pid: 3340,
@@ -111,7 +111,7 @@ describe('lib/wmic', function() {
         });
 
         it('should extract processes arguments as `args:`', function(done) {
-            sandbox.stub(libWmic, 'wmicStream', streamFile.bind(this, 'portal'));
+            sandbox.stub(libWmic, 'spawnStream', streamFile.bind(this, 'portal'));
             libWmic.query().then(function(results) {
                 expect(results).to.equal([{
                     pid: 2972,
@@ -123,11 +123,11 @@ describe('lib/wmic', function() {
             });
         });
 
-        it('should pass process arg to wmicStream()', function(done) {
+        it('should pass process arg to spawnStream()', function(done) {
             var process = 'test_process';
-            sandbox.stub(libWmic, 'wmicStream', streamFile.bind(this, 'skype'));
+            sandbox.stub(libWmic, 'spawnStream', streamFile.bind(this, 'skype'));
             libWmic.query(process, function() {});
-            sinon.assert.calledWith(libWmic.wmicStream, process);
+            sinon.assert.calledWith(libWmic.spawnStream, process);
             done();
         });
     });

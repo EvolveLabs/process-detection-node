@@ -39,35 +39,35 @@ describe('lib/ps', function() {
         });
     });
 
-    describe('#psArgs', function() {
+    describe('#spawnArgs', function() {
         beforeEach(function(done) {
             sandbox.stub(libPs, 'psColumns').returns('stub,columns');
             done();
         });
         it('should generate arguments using psColumns()', function(done) {
-            expect(libPs.psArgs())
+            expect(libPs.spawnArgs())
                 .to.equal(['-A', '-o', 'stub,columns']);
             done();
         });
         it('should add pid argument when called with one', function(done) {
-            expect(libPs.psArgs('pid'))
+            expect(libPs.spawnArgs('pid'))
                 .to.equal(['-A', '-p', 'pid', '-o', 'stub,columns']);
             done();
         });
 
         it('should convert pid argument to string', function(done) {
-            expect(libPs.psArgs(5555))
+            expect(libPs.spawnArgs(5555))
                 .to.equal(['-A', '-p', '5555', '-o', 'stub,columns']);
             done();
         });
 
     });
 
-    describe('#psStream', function() {
+    describe('#spawnStream', function() {
         var testStdout;
 
         beforeEach(function(done) {
-            sandbox.stub(libPs, 'psArgs')
+            sandbox.stub(libPs, 'spawnArgs')
                 .returns(['stubbed', 'args']);
             testStdout = {};
             var spawnOutput = { stdout: testStdout };
@@ -76,28 +76,28 @@ describe('lib/ps', function() {
             done();
         });
 
-        it('should spawn ps with arguments from psArgs()', function(done) {
-            libPs.psStream();
+        it('should spawn ps with arguments from spawnArgs()', function(done) {
+            libPs.spawnStream();
             sinon.assert.calledWith(childProcess.spawn, 'ps', ['stubbed', 'args']);
             done();
         });
 
-        it('should pass pid to psArgs', function(done) {
-            libPs.psStream('PID');
-            sinon.assert.calledWith(libPs.psArgs, 'PID');
+        it('should pass pid to spawnArgs', function(done) {
+            libPs.spawnStream('PID');
+            sinon.assert.calledWith(libPs.spawnArgs, 'PID');
             done();
         });
 
         it('should return stdout from spawn return value', function(done) {
-            expect(libPs.psStream())
+            expect(libPs.spawnStream())
                 .to.equal(testStdout);
             done();
         });
     });
 
     describe('#query', function() {
-        it('should resolve with processes extracted from psStream()', function(done) {
-            sandbox.stub(libPs, 'psStream', streamFile.bind(this, 'launchd'));
+        it('should resolve with processes extracted from spawnStream()', function(done) {
+            sandbox.stub(libPs, 'spawnStream', streamFile.bind(this, 'launchd'));
             libPs.query().then(function(results) {
                 expect(results).to.equal([
                     { pid: 1, execDir: '/sbin', command: 'launchd', args: '' }
@@ -107,7 +107,7 @@ describe('lib/ps', function() {
         });
 
         it('should extract processes arguments as `args:`', function(done) {
-            sandbox.stub(libPs, 'psStream', streamFile.bind(this, 'portal'));
+            sandbox.stub(libPs, 'spawnStream', streamFile.bind(this, 'portal'));
             libPs.query().then(function(results) {
                 expect(results).to.equal([{
                     pid: 85099,
@@ -119,11 +119,11 @@ describe('lib/ps', function() {
             });
         });
 
-        it('should pass extra args to psStream()', function(done) {
-            sandbox.stub(libPs, 'psStream', streamFile.bind(this, 'launchd'));
+        it('should pass extra args to spawnStream()', function(done) {
+            sandbox.stub(libPs, 'spawnStream', streamFile.bind(this, 'launchd'));
             var extra = ['extra', 'extra2'];
             libPs.query(extra, function() {});
-            sinon.assert.calledWith(libPs.psStream, extra);
+            sinon.assert.calledWith(libPs.spawnStream, extra);
             done();
         });
     });
