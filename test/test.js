@@ -127,7 +127,7 @@ describe.skip('on OS X', function(){
     });
 });
 
-describe('on Windows', function(){
+describe.skip('on Windows', function(){
 
     var sandbox;
 
