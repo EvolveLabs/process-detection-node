@@ -91,9 +91,9 @@ describe('lib/ps', function() {
     });
 
     describe('#query', function() {
-        it('should return rows from psStream()', function(done) {
+        it('should resolve with processes extracted from psStream()', function(done) {
             sandbox.stub(libPs, 'psStream', streamFile.bind(this, 'launchd'));
-            libPs.query(null, function(err, results) {
+            libPs.query().then(function(results) {
                 expect(results).to.equal([
                     { pid: 1, execDir: '/sbin', command: 'launchd', args: '' }
                 ]);
@@ -101,9 +101,9 @@ describe('lib/ps', function() {
             });
         });
 
-        it('should return rows with arguments from psStream()', function(done) {
+        it('should extract processes arguments as `args:`', function(done) {
             sandbox.stub(libPs, 'psStream', streamFile.bind(this, 'portal'));
-            libPs.query(null, function(err, results) {
+            libPs.query().then(function(results) {
                 expect(results).to.equal([{
                     pid: 85099,
                     command: 'hl2_osx',

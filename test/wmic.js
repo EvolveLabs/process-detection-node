@@ -97,9 +97,9 @@ describe('lib/wmic', function() {
     });
 
     describe('#query', function() {
-        it('should return rows from wmicStream()', function(done) {
+        it('should resolve with processes extracted from wmicStream()', function(done) {
             sandbox.stub(libWmic, 'wmicStream', streamFile.bind(this, 'skype'));
-            libWmic.query(null, function(err, results) {
+            libWmic.query().then(function(results) {
                 expect(results).to.equal([{
                     pid: 3340,
                     command: 'SkypeHost.exe',
@@ -110,9 +110,9 @@ describe('lib/wmic', function() {
             });
         });
 
-        it('should return rows with arguments from wmicStream()', function(done) {
+        it('should extract processes arguments as `args:`', function(done) {
             sandbox.stub(libWmic, 'wmicStream', streamFile.bind(this, 'portal'));
-            libWmic.query(null, function(err, results) {
+            libWmic.query().then(function(results) {
                 expect(results).to.equal([{
                     pid: 2972,
                     command: 'hl2.exe',

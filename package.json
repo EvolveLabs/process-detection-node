@@ -25,6 +25,7 @@
     "sinon": "1.17.4"
   },
   "dependencies": {
+    "bluebird": "3.4.1",
     "csv": "0.4.x",
     "lodash": "4.14.0",
     "split": "1.0.0"
