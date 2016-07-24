@@ -10,7 +10,6 @@ var afterEach = lab.afterEach;
 var expect = Code.expect;
 var it = lab.it;
 
-var libExec = require('../lib/exec');
 var libPs = require('../lib/ps');
 var libWmic = require('../lib/wmic');
 var ps = require('../index.js');
