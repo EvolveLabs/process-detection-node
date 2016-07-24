@@ -15,7 +15,7 @@
     "process",
     "wmic"
   ],
-  "author": "Joe Pintozzi",
+  "author": "Echobit LLC",
   "license": "ISC",
   "devDependencies": {
     "code": "3.0.1",
