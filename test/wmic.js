@@ -99,7 +99,22 @@ describe('lib/wmic', function() {
     describe('#query', function() {
         it('should resolve with processes extracted from spawnStream()', function(done) {
             sandbox.stub(libWmic, 'spawnStream', streamFile.bind(this, 'skype'));
+
             libWmic.query().then(function(results) {
+                expect(results).to.equal([{
+                    pid: 3340,
+                    command: 'SkypeHost.exe',
+                    args: '-ServerName:SkypeHost.ServerServer',
+                    execDir: 'C:\\Program Files\\WindowsApps\\Microsoft.Messaging_2.15.20002.0_x86__8wekyb3d8bbwe'
+                }]);
+                done();
+            });
+        });
+
+        it('should invoke callback with processes extracted from spawnStream()', function(done) {
+            sandbox.stub(libWmic, 'spawnStream', streamFile.bind(this, 'skype'));
+
+            libWmic.query(function(results) {
                 expect(results).to.equal([{
                     pid: 3340,
                     command: 'SkypeHost.exe',
@@ -112,6 +127,7 @@ describe('lib/wmic', function() {
 
         it('should extract processes arguments as `args:`', function(done) {
             sandbox.stub(libWmic, 'spawnStream', streamFile.bind(this, 'portal'));
+
             libWmic.query().then(function(results) {
                 expect(results).to.equal([{
                     pid: 2972,
@@ -123,12 +139,27 @@ describe('lib/wmic', function() {
             });
         });
 
-        it('should pass process arg to spawnStream()', function(done) {
-            var process = 'test_process';
+        it('should pass pid to spawnStream()', function(done) {
             sandbox.stub(libWmic, 'spawnStream', streamFile.bind(this, 'skype'));
-            libWmic.query(process, function() {});
-            sinon.assert.calledWith(libWmic.spawnStream, process);
+
+            libWmic.query('TEST_PID');
+            sinon.assert.calledWith(libWmic.spawnStream, 'TEST_PID');
             done();
+        });
+
+        it('should pass pid AND invoke callback', function(done) {
+            sandbox.stub(libWmic, 'spawnStream', streamFile.bind(this, 'skype'));
+
+            libWmic.query('TEST_PID', function(results) {
+                sinon.assert.calledWith(libWmic.spawnStream, 'TEST_PID');
+                expect(results).to.equal([{
+                    pid: 3340,
+                    command: 'SkypeHost.exe',
+                    args: '-ServerName:SkypeHost.ServerServer',
+                    execDir: 'C:\\Program Files\\WindowsApps\\Microsoft.Messaging_2.15.20002.0_x86__8wekyb3d8bbwe'
+                }]);
+                done();
+            });
         });
     });
 });

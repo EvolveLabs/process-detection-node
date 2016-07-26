@@ -98,7 +98,19 @@ describe('lib/ps', function() {
     describe('#query', function() {
         it('should resolve with processes extracted from spawnStream()', function(done) {
             sandbox.stub(libPs, 'spawnStream', streamFile.bind(this, 'launchd'));
+
             libPs.query().then(function(results) {
+                expect(results).to.equal([
+                    { pid: 1, execDir: '/sbin', command: 'launchd', args: '' }
+                ]);
+                done();
+            });
+        });
+
+        it('should invoke passed callback', function(done) {
+            sandbox.stub(libPs, 'spawnStream', streamFile.bind(this, 'launchd'));
+
+            libPs.query(function(results) {
                 expect(results).to.equal([
                     { pid: 1, execDir: '/sbin', command: 'launchd', args: '' }
                 ]);
@@ -108,6 +120,7 @@ describe('lib/ps', function() {
 
         it('should extract processes arguments as `args:`', function(done) {
             sandbox.stub(libPs, 'spawnStream', streamFile.bind(this, 'portal'));
+
             libPs.query().then(function(results) {
                 expect(results).to.equal([{
                     pid: 85099,
@@ -119,12 +132,24 @@ describe('lib/ps', function() {
             });
         });
 
-        it('should pass extra args to spawnStream()', function(done) {
+        it('should pass pid to spawnStream()', function(done) {
             sandbox.stub(libPs, 'spawnStream', streamFile.bind(this, 'launchd'));
-            var extra = ['extra', 'extra2'];
-            libPs.query(extra, function() {});
-            sinon.assert.calledWith(libPs.spawnStream, extra);
+
+            libPs.query('TEST_PID');
+            sinon.assert.calledWith(libPs.spawnStream, 'TEST_PID');
             done();
+        });
+
+        it('should pass pid AND invoke callback', function(done) {
+            sandbox.stub(libPs, 'spawnStream', streamFile.bind(this, 'launchd'));
+
+            libPs.query('TEST_PID', function(results) {
+                sinon.assert.calledWith(libPs.spawnStream, 'TEST_PID');
+                expect(results).to.equal([
+                    { pid: 1, execDir: '/sbin', command: 'launchd', args: '' }
+                ]);
+                done();
+            });
         });
     });
 });
