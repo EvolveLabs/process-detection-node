@@ -49,15 +49,15 @@ describe('lib/ps', function() {
                 .to.equal(['-A', '-o', 'stub,columns']);
             done();
         });
-        it('should add pid argument when called with one', function(done) {
+        it('should use pid argument when called with one', function(done) {
             expect(libPs.spawnArgs('pid'))
-                .to.equal(['-A', '-p', 'pid', '-o', 'stub,columns']);
+                .to.equal(['-p', 'pid', '-o', 'stub,columns']);
             done();
         });
 
         it('should convert pid argument to string', function(done) {
             expect(libPs.spawnArgs(5555))
-                .to.equal(['-A', '-p', '5555', '-o', 'stub,columns']);
+                .to.equal(['-p', '5555', '-o', 'stub,columns']);
             done();
         });
 
