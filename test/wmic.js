@@ -114,7 +114,7 @@ describe('lib/wmic', function() {
         it('should invoke callback with processes extracted from spawnStream()', function(done) {
             sandbox.stub(libWmic, 'spawnStream', streamFile.bind(this, 'skype'));
 
-            libWmic.query(function(results) {
+            libWmic.query(function(err, results) {
                 expect(results).to.equal([{
                     pid: 3340,
                     command: 'SkypeHost.exe',
@@ -150,7 +150,7 @@ describe('lib/wmic', function() {
         it('should pass pid AND invoke callback', function(done) {
             sandbox.stub(libWmic, 'spawnStream', streamFile.bind(this, 'skype'));
 
-            libWmic.query('TEST_PID', function(results) {
+            libWmic.query('TEST_PID', function(err, results) {
                 sinon.assert.calledWith(libWmic.spawnStream, 'TEST_PID');
                 expect(results).to.equal([{
                     pid: 3340,

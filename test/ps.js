@@ -110,7 +110,7 @@ describe('lib/ps', function() {
         it('should invoke passed callback', function(done) {
             sandbox.stub(libPs, 'spawnStream', streamFile.bind(this, 'launchd'));
 
-            libPs.query(function(results) {
+            libPs.query(function(err, results) {
                 expect(results).to.equal([
                     { pid: 1, execDir: '/sbin', command: 'launchd', args: '' }
                 ]);
@@ -143,7 +143,7 @@ describe('lib/ps', function() {
         it('should pass pid AND invoke callback', function(done) {
             sandbox.stub(libPs, 'spawnStream', streamFile.bind(this, 'launchd'));
 
-            libPs.query('TEST_PID', function(results) {
+            libPs.query('TEST_PID', function(err, results) {
                 sinon.assert.calledWith(libPs.spawnStream, 'TEST_PID');
                 expect(results).to.equal([
                     { pid: 1, execDir: '/sbin', command: 'launchd', args: '' }
